@@ -24,8 +24,38 @@ function createVol(){
  var questions =[
      {
          type:"input",
-         name:"",
-         message:"What is the name?"
+         Title:"",
+         message:"What is your title?"
+     }
+     {
+        type:"input",
+        Seats:"",
+        message:"How many seats?"
+     }
+     {
+        type:"input",
+        Address:"",
+        message:"What is your Address?"
+     }
+     {
+         type:"input",
+         Date:"",
+         message:"What Date?"
+     }
+     {
+         type:"input",
+         Date:"",
+         message:"What Time?"
+     }
+     {
+        type:"input",
+        Date:"",
+        message:"What Duration?"
+     }
+     {
+         type:"input",
+         Date:"",
+         message:"Effort level?"
      }
  ]
  inquirer.prompt(questions).then(function(userResponse){
