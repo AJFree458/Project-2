@@ -32,18 +32,18 @@ function start() {
             name: "toDo",
             type: "list",
             choices: [
-                "Add departments, roles, employees",
-                "View departments, roles, employees",
-                "Update employee roles",
+                "add roles, volunteers",
+                "View roles, volunteers",
+                "Update roles, volunteers",
             ],
         })
         .then(function (answer) {
             // based on their answer, either call the bid or the post functions
-            if (answer.toDo === "Add departments, roles, employees") {
+            if (answer.toDo === "Add roles, volunteers") {
                 runAddFunction();
-            } else if (answer.toDo === "View departments, roles, employees") {
+            } else if (answer.toDo === "View roles, volunteers") {
                 runViewFunction();
-            } else if (answer.toDo === "Update employee roles") {
+            } else if (answer.toDo === "Update roles, volunteers ") {
                 updatesFunction();
             } else {
                 connection.end();
@@ -57,16 +57,14 @@ function runAddFunction() {
             message: "Which one would you like to add?",
             name: "toDo",
             type: "list",
-            choices: ["departments", "roles", "employees"],
+            choices: ["roles", "volunteers"],
         })
         .then(function (answer) {
-            if (answer.toDo === "departments") {
-                addDepartment();
-            } else if (answer.toDo === "roles") {
+            if (answer.toDo === "roles") {
                 addRole();
-            } else if (answer.toDo === "employees") {
-                addEmployee();
-            }
+            } else if (answer.toDo === "volunteers") {
+                addVolunteer();
+            } 
         });
 }
 
@@ -76,26 +74,15 @@ function runViewFunction() {
             message: "Which one would you like to view?",
             name: "toDo",
             type: "list",
-            choices: ["departments", "roles", "employees"],
+            choices: ["roles", "volunteers"],
         })
         .then(function (answer) {
-            if (answer.toDo === "departments") {
-                viewDepartment();
-            } else if (answer.toDo === "roles") {
+            if (answer.toDo === "roles") {
                 viewRole();
-            } else if (answer.toDo === "employees") {
-                viewEmployee();
-            }
+            } else if (answer.toDo === "volunteers") {
+                viewVolunteer(); 
+            } 
         });
-}
-
-function viewDepartment() {
-    connection.query("SELECT * FROM department", function (error, data) {
-        console.table(data)
-        if (error) throw err;
-        console.log(data);
-        start();
-    });
 }
 
 function viewRole() {
@@ -107,8 +94,8 @@ function viewRole() {
     });
 }
 
-function viewEmployee() {
-    connection.query("SELECT * FROM employee", function (err, data) {
+function viewVolunteer() {
+    connection.query("SELECT * FROM volunteer", function (err, data) {
         console.table(data)
         if (err) throw err;
         console.log(data);
@@ -122,15 +109,13 @@ function updatesFunction() {
             message: "Which one would you like to update?",
             name: "toDo",
             type: "list",
-            choices: ["departments", "roles", "employees"],
+            choices: ["roles", "volunteers"],
         })
         .then(function (answer) {
-            if (answer.toDo === "departments") {
-                updateDepartment();
-            } else if (answer.toDo === "roles") {
+            if (answer.toDo === "roles") {
                 updateRole();
-            } else if (answer.toDo === "employees") {
-                updateEmployee();
+            } else if (answer.toDo === "volunteers") {
+                updateVolunteer();
             }
         });
 }
@@ -140,14 +125,21 @@ function updateRole() {
         .prompt([{
             message: "What is the role_id you wish to update?",
             name: "role_id",
+            type: "list",
+            choices: ["1", "2", "3", "4","5"]
         }, 
         {
             message: "what the new role title?",
             name: "newTitle",
+            type: "list",
+            choice: ["bus driver", "community outreach", "tutor", "Supervision", "manager"]
         },
         {
-            message: "What is the salary for the role?",
-            name: "newSalary",
+            message: "What is the location id?",
+            name: "locationId",
+            type: "list",
+            choices: ["101", "202", "303", "404", "505", "606", "707", "808"]
+
         },
     ])
         .then(function (answer) {
@@ -157,7 +149,7 @@ function updateRole() {
                     title: answer.newTitle,
                 },
                 {
-                    salary: answer.newSalary,
+                    departmentId: answer.locationId,
                 },
                 {
                     id: answer.role_id,
@@ -173,53 +165,22 @@ function updateRole() {
         });
 }
 
-function updateDepartment() {
+
+function updateVolunteer() {
     inquirer
         .prompt([{
-                message: " What is the department id",
-                name: "department_id",
-            },
-
-            {
-                message: "Whats the new department name?",
-                name: "departmentName",
-            },
-        ])
-        .then(function (answer) {
-            connection.query(
-                "UPDATE department SET ? WHERE ?",
-                [{
-                        name: answer.name,
-                    },
-                    {
-                        id: answer.department_id,
-                    },
-                ],
-
-                function (err) {
-                    if (err) throw err;
-
-                    start();
-                }
-            );
-        });
-}
-
-function updateEmployee() {
-    inquirer
-        .prompt([{
-                message: " What is the employee id?",
+                message: " What is the volunteer id?",
                 name: "id",
             },
 
             {
-                message: "Whats the new department name?",
-                name: "departmentName",
+                message: "Whats the new role_id?",
+                name: "newRoleId",
             },
         ])
         .then(function (answer) {
             connection.query(
-                "SELECT * FROM employee WHERE ?",
+                "SELECT * FROM volunteer WHERE ?",
                 [{
                     id: answer.id,
                 }, ],
@@ -227,17 +188,17 @@ function updateEmployee() {
                 function (err, res) {
                     if (err) throw err;
                     console.log(res);
-                    updateEmployeeInfo(answer.id);
+                    updateVolunteerInfo(answer.id);
                 }
             );
         });
 }
 
-function updateEmployeeInfo(employeeId) {
+function updateVolunteerInfo(volunteerId) {
     inquirer
         .prompt([{
-                message: "What do you want to update for the employee?",
-                name: "updateEmployeeInfo",
+                message: "What do you want to update for the volunteer?",
+                name: "updateVolunteerInfo",
                 type: "list",
                 choices: ["first_name", "last_name", "role_id", "manager_id"],
             },
@@ -248,12 +209,12 @@ function updateEmployeeInfo(employeeId) {
         ])
         .then(function (answer) {
             connection.query(
-                "UPDATE employee SET ? WHERE ?",
+                "UPDATE volunteer SET ? WHERE ?",
                 [{
-                        [answer.updateEmployeeInfo]: answer.newValue,
+                        [answer.updateVolunteerInfo]: answer.newValue,
                     },
                     {
-                        id: employeeId,
+                        id: volunteerId,
                     },
                 ],
 
@@ -266,61 +227,45 @@ function updateEmployeeInfo(employeeId) {
         });
 }
 
-function addDepartment() {
-    inquirer
-        .prompt({
-            message: "What's the name of the department",
-            name: "departmentName",
-        })
-        .then(function (answer) {
-            connection.query(
-                "INSERT INTO department SET ?", {
-                    name: answer.departmentName,
-                },
-                function (err) {
-                    if (err) throw err;
-
-                    start();
-                }
-            );
-        });
-}
-
-function addEmployee() {
+function addVolunteer() {
     inquirer
         .prompt([{
-            message: "What's the employees id",
-            name: "newEmployeeId",
+            message: "What's the volunteers id",
+            name: "newVolunteerId",
         },
         {
-            message: "What is the Employee first name?",
-            name: "newEmployeeFirstName",
+            message: "What is the volunteer first name?",
+            name: "newVolunteerFirstName",
         },
         {
-            message: "What is the Employee last name>?",
-            name: "newEmployeeLastName",
+            message: "What is the volunteer last name>?",
+            name: "newVolunteerLastName",
         },
         {
-            message: "What is the Employee role id?",
+            message: "What is the volunteer role id?",
             name: "roleId",
+            type: "list",
+            choices: ["1", "2", "3", "4","5"]
         },
         {
-            message: "what is the Employee manager id?",
-            name:"mangerId"
+            message: "what is the volunteer manager id?",
+            name:"mangerId",
+            type: "list",
+            choices: ["1000", "2000", "3000", "4000", "5000"]
         }
     ])  
         .then(function (answer) {
             connection.query(
-                "INSERT INTO employee SET ?", {
-                    id: answer.newEmployeeId,
-                    first_name: answer.newEmployeeFirstName,
-                    last_name: answer.newEmployeeLastName,
+                "INSERT INTO volunteer SET ?", {
+                    id: answer.newVolunteerId,
+                    first_name: answer.newVolunteerFirstName,
+                    last_name: answer.newVolunteerLastName,
                     role_id: answer.roleId,
                     manager_id : answer.mangerId,
                 },
                 function (err) {
                     if (err) throw err;
-                    console.log("Your employee was created successfully!");
+                    console.log("Your volunteer was created successfully!");
                     start();
                 }
             );
@@ -330,24 +275,24 @@ function addEmployee() {
 function addRole() {
     inquirer
         .prompt([{
-                message: "What's the role of the employee",
+                message: "What's the title of the volunteer",
                 name: "roleName",
+                type: "list",
+                choice: ["bus driver", "community outreach", "tutor", "Supervision", "manager"]
             },
             {
-                message: "What is the salary for the employee",
-                name: "salary",
-            },
-            {
-                message: "What is the department id?",
-                name: "departmentId",
+                message: "What is the the location id",
+                name: "newLocationId",
+                type: "list",
+                choices: ["101", "202", "303", "404", "505", "606", "707", "808"]
             },
         ])
         .then(function (answer) {
             connection.query(
                 "INSERT INTO roles SET ?", {
                     title: answer.roleName,
-                    salary: answer.salary,
-                    department_id: answer.departmentId,
+                    locationId: answer.newLocationId,
+                
                 },
                 function (err) {
                     if (err) throw err;
