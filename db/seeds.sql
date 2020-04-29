@@ -1,17 +1,8 @@
 
-INSERT INTO department (name)
-VALUES ("Transportation");
-
-INSERT INTO department (name)
-VALUES ("childrens");
-
-INSERT INTO department (name)
-VALUES ("commnunity outreach");
-
-INSERT INTO roles (title, department_id)
+INSERT INTO roles (title, location_id)
 VALUES ("bus driver", 1);
 
-INSERT INTO roles (title, department_id)
+INSERT INTO roles (title, location_id)
 VALUES ("tutor", 2);
 
 INSERT INTO volunteer (first_name, last_name, role_id, manager_id)

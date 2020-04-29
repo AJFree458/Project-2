@@ -3,11 +3,7 @@ DROP DATABASE IF EXISTS Volunteer;
 
 CREATE DATABASE volunteer;
 
-CREATE TABLE department (
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(30),
-    PRIMARY KEY(id)
-);
+USE volunteer;
 
 CREATE TABLE roles (
     id INT NOT NULL AUTO_INCREMENT,
@@ -23,7 +19,7 @@ CREATE TABLE roles (
     last_name VARCHAR(20) NOT NULL,
     role_id INT (10) NOT NULL,
     manager_id INT(20) NULL,
-    KEY (manager_id) REFERENCES employee(id),
+    KEY (manager_id) REFERENCES volunteer(id),
     PRIMARY KEY(id)
     );
 
