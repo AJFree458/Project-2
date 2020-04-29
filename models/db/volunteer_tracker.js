@@ -132,7 +132,7 @@ function updateRole() {
             message: "what the new role title?",
             name: "newTitle",
             type: "list",
-            choice: ["bus driver", "community outreach", "tutor", "Supervision", "manager"]
+            choice: ["bus driver", "community outreach", "tutor", "mentor", "manager"]
         },
         {
             message: "What is the location id?",
@@ -278,7 +278,7 @@ function addRole() {
                 message: "What's the title of the volunteer",
                 name: "roleName",
                 type: "list",
-                choice: ["bus driver", "community outreach", "tutor", "Supervision", "manager"]
+                choice: ["bus driver", "community outreach", "tutor", "mentor", "manager"]
             },
             {
                 message: "What is the the location id",
