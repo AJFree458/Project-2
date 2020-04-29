@@ -149,7 +149,7 @@ function updateRole() {
                     title: answer.newTitle,
                 },
                 {
-                    departmentId: answer.locationId,
+                    location_Id: answer.locationId,
                 },
                 {
                     id: answer.role_id,
@@ -176,6 +176,8 @@ function updateVolunteer() {
             {
                 message: "Whats the new role_id?",
                 name: "newRoleId",
+                type: "list",
+                choices: ["1", "2", "3", "4","5"]
             },
         ])
         .then(function (answer) {
@@ -183,7 +185,11 @@ function updateVolunteer() {
                 "SELECT * FROM volunteer WHERE ?",
                 [{
                     id: answer.id,
-                }, ],
+                }, 
+                {
+                    roleId: answer.newRoleId,
+                },
+            ],
 
                 function (err, res) {
                     if (err) throw err;
