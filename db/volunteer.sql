@@ -3,6 +3,8 @@ DROP DATABASE IF EXISTS Volunteer;
 
 CREATE DATABASE volunteer;
 
+USE volunteer;
+
 CREATE TABLE roles (
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(30) NOT NULL,

@@ -1,13 +1,4 @@
 
--- INSERT INTO department (name)
--- VALUES ("Transportation");
-
--- INSERT INTO department (name)
--- VALUES ("childrens");
-
--- INSERT INTO department (name)
--- VALUES ("commnunity outreach");
-
 INSERT INTO roles (title, location_id)
 VALUES ("bus driver", 1);
 
