@@ -1,5 +1,8 @@
+/* eslint-disable prettier/prettier */
 var express = require("express");
 var exphbs = require("express-handlebars");
+var session = require("express-session");
+var passport = require("./config/passport");
 
 var app = express();
 
@@ -10,12 +13,20 @@ var PORT = process.env.PORT || 8080;
 
 var db = require("./models");
 
+var app = express();
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
+// We need to use sessions to keep track of our user's login status
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
-require("./routes/apiroutes.js")(app);
+require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
 db.sequelize.sync({ force: true }).then(function () {
