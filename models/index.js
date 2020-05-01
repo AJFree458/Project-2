@@ -2,7 +2,7 @@
 /* eslint-disable indent */
 
 "use strict";
-
+require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
@@ -12,16 +12,27 @@ const env = process.env.NODE_ENV || "development";
 const config = require(path.join(__dirname, "/../config/config.json"))[env];
 const db = {};
 
-// let sequelize;
-// if (config.use_env_variable) {
-let sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
-  {
-    dialect: "mysql",
-  }
-);
+let sequelize;
+if (config.use_env_variable) {
+  console.log("Using Environment Variables");
+  console.log(process.env.DB_NAME);
+  sequelize = new Sequelize(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
+    {
+      dialect: "mysql",
+    }
+  );
+} else {
+  console.log("Using Config File");
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  );
+}
 
 fs.readdirSync(__dirname)
   .filter((file) => {
