@@ -24,10 +24,6 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
-var db = require("./models");
-
-var app = express();
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

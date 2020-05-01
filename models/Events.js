@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable indent */
 module.exports = (sequelize, DataTypes) => {
-  const Events = sequelize.define("Events", {
+  var Events = sequelize.define("Events", {
     eventId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -98,4 +98,5 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   });
+  return Events;
 };

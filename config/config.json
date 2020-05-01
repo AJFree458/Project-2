@@ -1,5 +1,6 @@
 {
   "development": {
+    "use_env_variable": true,
     "username": "root",
     "password": "abc123",
     "database": "volunteer",
