@@ -4,9 +4,17 @@
     box-sizing: border-box;
 }
 
+body {
+    line-height: 1.7em;
+    color: #7f8c8d;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 hr {
     border: 5px solid #f1f1f1;
     margin-bottom: 25px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #homePicture {
@@ -14,10 +22,19 @@ hr {
     height: auto;
 }
 
-body {
-    line-height: 1.7em;
-    color: #7f8c8d;
-    font-size: 13px;
+.volunOpp {
+    text-align: center;
+}
+
+#volunteerPic {
+    width: 60%;
+    height: 25%;
+    padding-left: 20%;
+}
+
+form.signup,
+form.login {
+    margin-top: 50px;
 }
 
 h3 {
@@ -32,72 +49,6 @@ h6,
 label {
     color: #34495e;
 }
-
-.pure-img-responsive {
-    max-width: 100%;
-    height: auto;
-}
-
-/*
- * -- LAYOUT STYLES --
- * These are some useful classes which I will need
- */
-.l-box {
-    padding: 1em;
-}
-
-.l-box-lrg {
-    padding: 2em;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-.is-center {
-    text-align: center;
-}
-
-
-
-/*
- * -- PURE FORM STYLES --
- * Style the form inputs and labels
- */
-.pure-form label {
-    margin: 1em 0 0;
-    font-weight: bold;
-    font-size: 100%;
-}
-
-.pure-form input[type] {
-    border: 2px solid #ddd;
-    box-shadow: none;
-    font-size: 100%;
-    width: 100%;
-    margin-bottom: 1em;
-}
-
-/*
- * -- PURE BUTTON STYLES --
- * I want my pure-button elements to look a little different
- */
-.pure-button {
-    background-color: #1f8dd6;
-    color: white;
-    padding: 0.5em 2em;
-    border-radius: 5px;
-}
-
-a.pure-button-primary {
-    background: white;
-    color: #1f8dd6;
-    border-radius: 5px;
-    font-size: 120%;
-}
-
-
-/*
- * -- MENU STYLES --
- * I want to customize how my .pure-menu looks at the top of the page
- */
 
 .home-menu {
     padding: 0.5em;
@@ -134,11 +85,60 @@ a.pure-button-primary {
     color: #AECFE5;
 }
 
+  /* Add some padding inside the card container */
+  .card-container {
+    max-width: 525px;
+    padding: 2px 16px;
+    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
 
-/*
- * -- SPLASH STYLES --
- * This is the blue top section that appears on the page.
- */
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+.l-box {
+    padding: 1em;
+}
+
+.l-box-lrg {
+    padding: 2em;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.is-center {
+    text-align: center;
+}
+
+.pure-form label {
+    margin: 1em 0 0;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.pure-form input[type] {
+    border: 2px solid #ddd;
+    box-shadow: none;
+    font-size: 100%;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.pure-button {
+    background-color: #1f8dd6;
+    color: white;
+    padding: 0.5em 2em;
+    border-radius: 5px;
+}
+
+a.pure-button-primary {
+    background: white;
+    color: #1f8dd6;
+    border-radius: 5px;
+    font-size: 120%;
+}
 
 .splash-container {
     background: #1f8dd6;
@@ -146,7 +146,7 @@ a.pure-button-primary {
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
     width: 100%;
-    height: 88%;
+    height: 100%;
     top: 0;
     left: 0;
     position: fixed !important;
@@ -154,12 +154,12 @@ a.pure-button-primary {
 
 .splash {
     /* absolute center .splash within .splash-container */
-    width: 80%;
-    height: 50%;
+    width: 300px;
+    height: 200px;
     margin: auto;
+    padding: 0;
     position: absolute;
-    top: 100px; left: 0; bottom: 0; right: 0;
-    text-align: center;
+    top: 50px; left: 0; bottom: 0; right: 0;
     text-transform: uppercase;
 }
 
@@ -295,13 +295,228 @@ a.pure-button-primary {
  * of the mobile and tablet styles.
  */
 @media (min-width: 78em) {
-    /* We increase the header font size even more */
-    .splash-head {
-        font-size: 300%;
-    }
+/* We increase the header font size even more */
+.splash-head {
+    font-size: 300%;
 }
-#homePicture {
-    position: relative;
-    padding-left: 200px;
+}
+
+.pricing-tables,
+.information {
+max-width: 980px;
+margin: 0 auto;
+}
+.pricing-tables {
+margin-bottom: 3.125em;
+text-align: center;
+}
+
+/*
+* -- PRICING TABLE  --
+* Every pricing table has the .pricing-table class
+*/
+.pricing-table {
+border: 1px solid #ddd;
+margin: 0 0.5em 2em;
+padding: 0 0 3em;
+}
+
+/*
+* -- PRICING TABLE HEADER COLORS --
+* Choose a different color based on the type of pricing table.
+*/
+.pricing-table-free .pricing-table-header {
+background: #519251;
+}
+
+.pricing-table-biz .pricing-table-header {
+background: #2c4985;
+}
+
+/*
+* -- PRICING TABLE HEADER --
+* By default, a header is black/white, and has some styles for its <h2> name.
+*/
+.pricing-table-header {
+background: #111;
+color: #fff;
+}
+.pricing-table-header h2 {
+    margin: 0;
+    padding-top: 2em;
+    font-size: 1em;
+    font-weight: normal;
+
+} */
+
+
+/*
+* -- PRICING TABLE PRICE --
+* Styles for the price and the corresponding <span>per month</span>
+*/
+.pricing-table-price {
+font-size: 6em;
+margin: 0.2em 0 0;
+font-weight: 100;
+}
+.pricing-table-price span {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.2em;
+    padding-bottom: 2em;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    *color: #fff;
+}
+
+
+
+/*
+* -- PRICING TABLE LIST --
+* Each pricing table has a <ul> which is denoted by the .pricing-table-list class
+*/
+.pricing-table-list {
+list-style-type: none;
+margin: 0;
+padding: 0;
+text-align: center;
+}
+
+
+/*
+* -- PRICING TABLE LIST ELEMENTS --
+* Styles for the individual list elements within each pricing table
+*/
+.pricing-table-list li {
+padding: 0.8em 0;
+background: #f7f7f7;
+border-bottom: 1px solid #e7e7e7;
+}
+
+
+/*
+* -- PRICING TABLE BUTTON --
+* Styles for the "Choose" button at the bottom of a pricing table.
+* This inherits from Pure Button.
+*/
+.button-choose {
+border: 1px solid #ccc;
+background: #fff;
+color: #333;
+border-radius: 2em;
+font-weight: bold;
+position: relative;
+bottom: -1.5em;
+}
+
+.information-head {
+color: black;
+font-weight: 500;
+}
+
+.footer {
+background: #111;
+color: #888;
+text-align: center;
+}
+.footer a {
+    color: #ddd;
+}
+
+
+
+/*
+* -- TABLET MEDIA QUERIES --
+* On tablets, we want to slightly adjust the size of the banner
+* text and add some vertical space between the various pricing tables
+*/
+@media(min-width: 767px) {
+
+.banner-head {
+    font-size: 4em;
+}
+.pricing-table {
+    margin-bottom: 0;
+}
 
 }
+
+/*
+* -- PHONE MEDIA QUERIES --
+* On phones, we want to reduce the height and font-size of the banner further
+*/
+@media (min-width: 480px) {
+.banner {
+    height: 400px;
+}
+.banner-head {
+    font-size: 3em;
+}
+}
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity: 1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,
+.signupbtn {
+    float: left;
+    width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+
+    .cancelbtn,
+    .signupbtn {
+        width: 100%;
+    }
+}
+
