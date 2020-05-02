@@ -1,3 +1,7 @@
 node_modules
 .env
+<<<<<<< HEAD
 .eslintrc.json
+=======
+.eslintrc.json
+>>>>>>> 59bd4d77f9ad30088605410bbca786e690e1e8aa
