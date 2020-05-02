@@ -17,9 +17,11 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     // If the user already has an account send them to the index page
     if (req.user) {
-      res.redirect("../public/html/volunteer.html");
+      res.redirect("/volunteer");
+      // res.sendFile(path.join(__dirname, "../public/html/volunteer.html"));
     }
-    res.sendFile(path.join(__dirname, "../public/html/signup.html"));
+    // res.sendFile(path.join(__dirname, "/signup"));
+    res.redirect("/signup");
   });
 
   app.get("/js", (req, res) => {
@@ -41,7 +43,7 @@ module.exports = function (app) {
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the index page
     if (req.user) {
-      res.redirect("../public/html/volunteer.html");
+      res.redirect("/");
     }
     res.sendFile(path.join(__dirname, "../public/html/login.html"));
   });
