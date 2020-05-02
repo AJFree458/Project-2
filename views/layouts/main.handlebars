@@ -19,22 +19,25 @@
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
     <link rel="stylesheet" href="../css/index.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 
     <div class="header">
-        <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <div id="navBar" class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
             <a class="pure-menu-heading" href="">Volunteer your time</a>
 
             <ul class="pure-menu-list">
-                <li class="pure-menu-item pure-menu-selected"><a href="index.html" class="pure-menu-link">Home</a></li>
-                <li class="pure-menu-item"><a href="volunteer.html" class="pure-menu-link">Volunteer</a></li>
-                <li class="pure-menu-item"><a href="#bottom_link" class="pure-menu-link">Sign Up</a></li>
+                <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+                <li class="pure-menu-item"><a href="/volunteer" class="pure-menu-link">Volunteer</a></li>
+                <li class="pure-menu-item"><a href="/signup" class="pure-menu-link">Sign Up</a></li>
+                <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">LOG OUT</a></li>
             </ul>
         </div>
     </div>
+    <hr>
 
     {{{ body }}}
 
