@@ -33,7 +33,7 @@ module.exports = function (app) {
       password: req.body.psw,
     })
       .then(function () {
-        res.redirect(307, "/api/login");
+        res.redirect(302, "/login");
       })
       .catch(function (err) {
         res.status(401).json(err);
