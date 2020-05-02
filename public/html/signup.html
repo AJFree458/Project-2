@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A layout example that shows off a responsive product landing page.">
     <title>HOME &ndash; Layout Examples &ndash; Pure</title>
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
 
     <!--[if lte IE 8]>
             <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-old-ie-min.css">
@@ -29,19 +28,19 @@
             <a class="pure-menu-heading" href="">Sign up Here</a>
 
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li>
-                <li class="pure-menu-item"><a href="volunteer.html" class="pure-menu-link">Volunteer</a></li>
-                <li class="pure-menu-item"><a href="signup.html" class="pure-menu-link">Sign Up</a></li>
+                <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+                <li class="pure-menu-item"><a href="/volunteer" class="pure-menu-link">Volunteer</a></li>
+                <li class="pure-menu-item"><a href="/signup" class="pure-menu-link">Sign Up</a></li>
             </ul>
         </div>
     </div>
 
-    <form action="/action_page.php" style="border:1px solid #ccc">
+    <form action="/api/signup" method='post' style="border:1px solid #ccc">
         <div class="container">
             <hr>
             <h1>Sign Up</h1>
             <p>Please fill in this form to create an account.</p>
-        
+
 
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" required>
@@ -56,9 +55,9 @@
                 <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
             </label>
 
-            <p>Or log in <a href="login.html">here</a></p>
+            <p>Or log in <a href="/login">here</a></p>
 
-            <p>By creating an account you agree to our <a href="privacy.html" target="_blank" style="color:dodgerblue">Terms & Privacy</a>.</p>
+            <p>By creating an account you agree to our <a href="/privacy" target="_blank" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
             <div class="clearfix">
                 <button type="button" class="cancelbtn">Cancel</button>
@@ -72,5 +71,6 @@
 
 <div class="footer l-box is-center">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam harum ea, tenetur, vero illo error modi alias labore doloribus natus quam repudiandae consequuntur ut, eius minima. Explicabo ipsa itaque autem?
-    </div>
+</div>
+
 </html>

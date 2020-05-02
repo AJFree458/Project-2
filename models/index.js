@@ -22,6 +22,7 @@ if (config.use_env_variable) {
     process.env.DB_PASSWORD,
     {
       dialect: "mysql",
+      omitNull: true,
     }
   );
 } else {
