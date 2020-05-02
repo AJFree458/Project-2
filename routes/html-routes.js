@@ -17,17 +17,33 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     // If the user already has an account send them to the index page
     if (req.user) {
-      res.redirect("../public/html/index.html");
+      res.redirect("../public/html/volunteer.html");
     }
-    res.sendFile(path.join(__dirname, "../public/html/login.html"));
+    res.sendFile(path.join(__dirname, "../public/html/signup.html"));
+  });
+
+  app.get("/js", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/js/"));
+  });
+
+  app.get("/privacy", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/html/privacy.html"));
+  });
+
+  app.get("/volunteer", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/html/volunteer.html"));
+  });
+
+  app.get("/signup", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/html/signup.html"));
   });
 
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the index page
     if (req.user) {
-      res.redirect("../public/login.html");
+      res.redirect("../public/html/volunteer.html");
     }
-    res.sendFile(path.join(__dirname, "../public/html/index.html"));
+    res.sendFile(path.join(__dirname, "../public/html/login.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.

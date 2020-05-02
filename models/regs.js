@@ -15,10 +15,10 @@ module.exports = (sequelize, DataTypes) => {
 
     eventID: {
       type: DataTypes.INTEGER,
-      references: {
-        model: "Events",
-        referencesKey: "id",
-      },
+      // references: {
+      //   model: "Events",
+      //   referencesKey: "id",
+      // },
       allowNull: false,
       validate: {
         isNumeric: true,
@@ -27,10 +27,10 @@ module.exports = (sequelize, DataTypes) => {
 
     userID: {
       type: DataTypes.INTEGER,
-      references: {
-        model: "Users",
-        referencesKey: "id",
-      },
+      // references: {
+      //   model: "Users",
+      //   referencesKey: "id",
+      // },
       allowNull: false,
       validate: {
         isNumeric: true,
