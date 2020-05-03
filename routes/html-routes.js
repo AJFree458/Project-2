@@ -15,14 +15,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
   app.get("/", function (req, res) {
-    // If the user already has an account send them to the index page
-    // if (req.user) {
-    // res.redirect("/volunteer");
-
     res.sendFile(path.join(__dirname, "../public/html/index.html"));
-    // }
-    // res.sendFile(path.join(__dirname, "/signup"));
-    // res.redirect("/signup");
   });
 
   app.get("/js", (req, res) => {
@@ -33,7 +26,8 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/html/privacy.html"));
   });
 
-  app.get("/volunteer", (req, res) => {
+  // If a user who is not logged in tries to access this route they will be redirected to the login page
+  app.get("/volunteer", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/html/volunteer.html"));
   });
 
@@ -42,16 +36,12 @@ module.exports = function (app) {
   });
 
   app.get("/login", function (req, res) {
-    // If the user already has an account send them to the index page
-    // if (req.user) {
-    res.redirect("/");
-    // }
     res.sendFile(path.join(__dirname, "../public/html/login.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the login page
-  app.get("../public/html/login.html", isAuthenticated, function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/index.html"));
-  });
+  // app.get("../public/html/login.html", isAuthenticated, function (req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/html/index.html"));
+  // });
 };
