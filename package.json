@@ -1,6 +1,9 @@
 {
   "name": "project-2",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.13.1"
+  },
   "description": "A volunteer app",
   "main": "server.js",
   "dependencies": {
