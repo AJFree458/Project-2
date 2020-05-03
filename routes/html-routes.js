@@ -16,12 +16,13 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function (app) {
   app.get("/", function (req, res) {
     // If the user already has an account send them to the index page
-    if (req.user) {
-      res.redirect("/volunteer");
-      // res.sendFile(path.join(__dirname, "../public/html/volunteer.html"));
-    }
+    // if (req.user) {
+    // res.redirect("/volunteer");
+
+    res.sendFile(path.join(__dirname, "../public/html/index.html"));
+    // }
     // res.sendFile(path.join(__dirname, "/signup"));
-    res.redirect("/signup");
+    // res.redirect("/signup");
   });
 
   app.get("/js", (req, res) => {
@@ -42,9 +43,9 @@ module.exports = function (app) {
 
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the index page
-    if (req.user) {
-      res.redirect("/");
-    }
+    // if (req.user) {
+    res.redirect("/");
+    // }
     res.sendFile(path.join(__dirname, "../public/html/login.html"));
   });
 
