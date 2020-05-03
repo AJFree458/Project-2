@@ -13,9 +13,14 @@ const config = require(path.join(__dirname, "/../config/config.json"))[env];
 const db = {};
 
 let sequelize;
+
 if (config.use_env_variable) {
   console.log("Using Environment Variables");
-  console.log(process.env.DB_NAME);
+  console.log(config);
+  console.log("DB_Name: " + process.env.DB_NAME);
+  console.log("DB_User: " + process.env.DB_USER);
+  console.log("JAWSDB_URL: " + process.env.use_env_variable);
+
   sequelize = new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USER,
@@ -27,6 +32,8 @@ if (config.use_env_variable) {
   );
 } else {
   console.log("Using Config File");
+  console.log("DB_Name: " + config.database);
+  console.log("DB_User: " + config.username);
   sequelize = new Sequelize(
     config.database,
     config.username,
