@@ -2,6 +2,8 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+var saltRounds = 10;
+var bcrypt = require("bcrypt");
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -15,7 +17,7 @@ module.exports = function (app) {
         id: req.user.id,
       })
       .then(function () {
-        res.redirect(307, "/");
+        res.redirect(302, "/");
       })
       .catch(function (err) {
         res.status(401).json(err);
@@ -62,17 +64,57 @@ module.exports = function (app) {
     }
   });
   // Route for getting some data about our user to be used client side
-  // app.get("/api/user_data", function(req, res) {
-  //     if (!req.user) {
-  //         // The user is not logged in, send back an empty object
-  //         res.json({});
-  //     } else {
-  //         // Otherwise send back the user's email and id
-  //         // Sending back a password, even a hashed password, isn't a good idea
-  //         res.json({
-  //             email: req.user.email,
-  //             id: req.user.id,
-  //         });
-  //     }
-  // });
+  app.get("/api/user_data", function (req, res) {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      // Otherwise send back the user's email and id
+      // Sending back a password, even a hashed password, isn't a good idea
+      res.json({
+        email: req.user.email,
+        id: req.user.id,
+      });
+    }
+  });
+
+  // /register: storing name, email and password and redirecting to home page after signup
+  app.post("/user/create", function (req, res) {
+    bcrypt.hash(req.body.signup, saltRounds, function (err, hash) {
+      db.User.create({
+        name: req.body.signup,
+        email: req.body.email,
+        password: hash,
+      }).then(function (data) {
+        if (data) {
+          res.redirect("/login");
+        }
+      });
+    });
+  });
+
+  //login page: storing and comparing email and password,and redirecting to home page after login
+  app.post("/user", function (req, res) {
+    db.User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    }).then(function (user) {
+      if (!user) {
+        res.redirect("/");
+      } else {
+        bcrypt.compare(req.body.password, user.password, function (
+          err,
+          result
+        ) {
+          if (result == true) {
+            res.redirect("/index");
+          } else {
+            res.send("Incorrect password");
+            res.redirect("/");
+          }
+        });
+      }
+    });
+  });
 };
