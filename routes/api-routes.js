@@ -50,17 +50,10 @@ module.exports = function (app) {
   });
 
   app.post("/api/newevent", (req, res) => {
-    db.Events.create({
-      eventTitle: req.body.title,
-      address: req.body.address,
-      eventStartDate: req.body.eventDate,
-      eventStartTime: req.body.time,
-      regLimit: req.body.seats,
-      duration: req.body.duration,
-      effort: req.body.effort,
-      eventSummary: req.body.summary,
-      eventDetail: req.body.details,
-    })
+    db.Events.create(req.body)
+      .then(function (dbNewEvent) {
+        res.json(dbNewEvent);
+      })
       .then(function () {
         res.send("Thank You");
         // res.redirect(302, "/NewEvent");
