@@ -40,7 +40,10 @@ module.exports = function (app) {
 
   app.get("/volunteer", isAuthenticated, (req, res) => {
     // res.sendFile(path.join(__dirname, "../public/html/volunteer.html"));
-    res.render("volunteer");
+    res.render("volunteer", {
+      memberName: req.user.name,
+      Authenticated: true,
+    });
   });
 
   // If a user who is not logged in tries to access this route they will be redirected to the login page

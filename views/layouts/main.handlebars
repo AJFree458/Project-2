@@ -19,24 +19,35 @@
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
     <link rel="stylesheet" href="../css/index.css">
-    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/public/js/getUsername.js"></script>
 
 </head>
 
 <body>
 
     <div class="header">
-        <div id="navBar" class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-            <a class="pure-menu-heading" href="">Volunteer your time</a>
+        <spa id="navBar" class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+            {{#if Authenticated}}
+                     <span style="text-align: right;color:white;margin:10px;">Hello, {{memberName}}</span>
+            {{else}}
+                    <span class="pure-menu-heading">Volunteer Your Time</span>
+            {{/if}}
 
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+                <li class="pure-menu-item"><a href="/">Home</a></li>
                 <li class="pure-menu-item"><a href="/volunteer" class="pure-menu-link">Volunteer</a></li>
-                <li class="pure-menu-item"><a href="/signup" class="pure-menu-link">Sign Up/Log in</a></li>
-                <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">Log Out</a></li>
+                {{#if Authenticated}}
+                     <li class="pure-menu-item"><a href="/logout">Log Out</a></li>
+                {{else}}
+                        <li class="pure-menu-item"><a href="/signup" class="pure-menu-link">Sign Up</a></li>
+                        <li class="pure-menu-item"><a href="/login" class="pure-menu-link">Log in</a></li>
+                {{/if}}
+
             </ul>
-        </div>
+        </spa>
+
     </div>
+
     <hr>
 
     {{{ body }}}
