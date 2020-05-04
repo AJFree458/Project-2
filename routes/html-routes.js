@@ -18,20 +18,7 @@ module.exports = function (app) {
   });
 
   app.get("/privacy", (req, res) => {
-
     res.render("privacy", { layout: false });
-  });
-
-  app.get("/volunteer", (req, res) => {
-    db.Events.findAll({}).then(function (dbEvents) {
-      console.log(dbEvents[0]);
-      // res.sendFile(path.join(__dirname,"../public/html/user.html"));
-      res.render("volunteer", {
-        volunteers: dbEvents.map((event) => event.toJSON()),
-      });
-      // res.json(dbEvents)
-    });
- 
   });
 
   app.get("/signup", (req, res) => {
@@ -40,7 +27,6 @@ module.exports = function (app) {
   });
 
   app.get("/login", function (req, res) {
-
     // If the user already has an account send them to the index page
     // if (req.user) {
     // res.redirect("/login");
@@ -50,6 +36,17 @@ module.exports = function (app) {
 
   // Routes that require Authentification to view
   // If a user who is not logged in tries to access one of these routes they will be redirected to the login page
+
+  app.get("/volunteer", isAuthenticated, (req, res) => {
+    db.Events.findAll({}).then(function (dbEvents) {
+      console.log(dbEvents[0]);
+      // res.sendFile(path.join(__dirname,"../public/html/user.html"));
+      res.render("volunteer", {
+        memberName: req.user.name,
+        Authenticated: true,
+        volunteers: dbEvents.map((event) => event.toJSON()),
+      });
+    });
   });
 
   // If a user who is not logged in tries to access this route they will be redirected to the login page
