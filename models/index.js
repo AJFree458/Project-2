@@ -19,7 +19,7 @@ if (config.use_env_variable) {
   console.log(config);
   console.log("DB_Name: " + process.env.DB_NAME);
   console.log("DB_User: " + process.env.DB_USER);
-  console.log("JAWSDB_URL: " + process.env.use_env_variable);
+  console.log("JAWSDB_URL: " + process.env.JAWSDB_URL);
 
   sequelize = new Sequelize(
     process.env.DB_NAME,
