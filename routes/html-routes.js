@@ -4,10 +4,6 @@ var db = require("../models");
 // var router = express.Router();
 var path = require("path"); // Requiring path to so we can use relative routes to our HTML files
 
-// router.get("/", function (req, res) {
-//   res.render("index");
-// });
-
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
@@ -22,8 +18,20 @@ module.exports = function (app) {
   });
 
   app.get("/privacy", (req, res) => {
-    // res.sendFile(path.join(__dirname, "../public/html/privacy.html"));
+
     res.render("privacy", { layout: false });
+  });
+
+  app.get("/volunteer", (req, res) => {
+    db.Events.findAll({}).then(function (dbEvents) {
+      console.log(dbEvents[0]);
+      // res.sendFile(path.join(__dirname,"../public/html/user.html"));
+      res.render("volunteer", {
+        volunteers: dbEvents.map((event) => event.toJSON()),
+      });
+      // res.json(dbEvents)
+    });
+ 
   });
 
   app.get("/signup", (req, res) => {
@@ -32,25 +40,32 @@ module.exports = function (app) {
   });
 
   app.get("/login", function (req, res) {
-    // res.sendFile(path.join(__dirname, "../public/html/login.html"));
+
+    // If the user already has an account send them to the index page
+    // if (req.user) {
+    // res.redirect("/login");
+    // }
     res.render("login", { layout: "loginMain" });
   });
 
   // Routes that require Authentification to view
   // If a user who is not logged in tries to access one of these routes they will be redirected to the login page
-
-  app.get("/volunteer", isAuthenticated, (req, res) => {
-    // res.sendFile(path.join(__dirname, "../public/html/volunteer.html"));
-    res.render("volunteer", {
-      memberName: req.user.name,
-      Authenticated: true,
-
-    });
   });
 
   // If a user who is not logged in tries to access this route they will be redirected to the login page
   app.get("/NewEvent", isAuthenticated, (req, res) => {
     // res.sendFile(path.join(__dirname, "../public/html/newEvent.html"));
     res.render("newEvent");
+  });
+
+  app.get("/members", isAuthenticated, function (req, res) {
+    db.Events.findAll({}).then(function (dbEvents) {
+      console.log(dbEvents[0]);
+      // res.sendFile(path.join(__dirname,"../public/html/user.html"));
+      res.render("members", {
+        dbEvents: dbEvents.map((event) => event.toJSON()),
+      });
+      // res.json(dbEvents)
+    });
   });
 };
