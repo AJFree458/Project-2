@@ -41,11 +41,10 @@ module.exports = function (app) {
 
   app.get("/volunteer", isAuthenticated, (req, res) => {
     // res.sendFile(path.join(__dirname, "../public/html/volunteer.html"));
-    db.Events.findAll(function (data) {
-      var hbsObject = {
-        Events: data,
-      };
-      res.render("volunteer", { layout: "volunteerMain" }, hbsObject);
+    res.render("volunteer", {
+      memberName: req.user.name,
+      Authenticated: true,
+
     });
   });
 
