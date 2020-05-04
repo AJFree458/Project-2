@@ -3,6 +3,8 @@ var express = require("express");
 
 var router = express.Router();
 
+var db = require("../models");
+
 router.get("/", function (req, res) {
   res.render("index");
 });
@@ -34,7 +36,14 @@ module.exports = function (app) {
   });
 
   app.get("/volunteer", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/html/volunteer.html"));
+    db.Events.findAll({}).then(function (dbEvents) {
+      console.log(dbEvents[0]);
+      // res.sendFile(path.join(__dirname,"../public/html/user.html"));
+      res.render("volunteer", {
+        volunteers: dbEvents.map((event) => event.toJSON()),
+      });
+      // res.json(dbEvents)
+    });
   });
 
   app.get("/signup", (req, res) => {
@@ -44,7 +53,7 @@ module.exports = function (app) {
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the index page
     // if (req.user) {
-    res.redirect("/");
+    // res.redirect("/login");
     // }
     res.sendFile(path.join(__dirname, "../public/html/login.html"));
   });
@@ -53,5 +62,16 @@ module.exports = function (app) {
   // If a user who is not logged in tries to access this route they will be redirected to the login page
   app.get("../public/html/login.html", isAuthenticated, function (req, res) {
     res.sendFile(path.join(__dirname, "../public/html/index.html"));
+  });
+
+  app.get("/members", isAuthenticated, function (req, res) {
+    db.Events.findAll({}).then(function (dbEvents) {
+      console.log(dbEvents[0]);
+      // res.sendFile(path.join(__dirname,"../public/html/user.html"));
+      res.render("members", {
+        dbEvents: dbEvents.map((event) => event.toJSON()),
+      });
+      // res.json(dbEvents)
+    });
   });
 };
