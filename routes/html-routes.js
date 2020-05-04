@@ -1,14 +1,11 @@
 /* eslint-disable prettier/prettier */
 var express = require("express");
-
 var router = express.Router();
+var path = require("path"); // Requiring path to so we can use relative routes to our HTML files
 
 router.get("/", function (req, res) {
   res.render("index");
 });
-
-// Requiring path to so we can use relative routes to our HTML files
-var path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -26,11 +23,6 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/html/privacy.html"));
   });
 
-  // If a user who is not logged in tries to access this route they will be redirected to the login page
-  app.get("/volunteer", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/html/volunteer.html"));
-  });
-
   app.get("/signup", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/html/signup.html"));
   });
@@ -39,9 +31,15 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/html/login.html"));
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
+  // Routes that require Authentification to view
+  // If a user who is not logged in tries to access one of these routes they will be redirected to the login page
+
+  app.get("/volunteer", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/html/volunteer.html"));
+  });
+
   // If a user who is not logged in tries to access this route they will be redirected to the login page
-  // app.get("../public/html/login.html", isAuthenticated, function (req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/html/index.html"));
-  // });
+  app.get("/NewEvent", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/html/newEvent.html"));
+  });
 };
