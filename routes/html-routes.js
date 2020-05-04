@@ -21,7 +21,7 @@ module.exports = function (app) {
 
   app.get("/signup", (req, res) => {
     // res.sendFile(path.join(__dirname, "../public/html/signup.html"));
-    res.render("signup", { layout: "signupMain" });
+    res.render("signup");
   });
 
   app.get("/login", function (req, res) {
