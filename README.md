@@ -1,4 +1,6 @@
-# README-VOLUNTEER APP
+# README
+
+VOLUNTEER APP
 
 # Repository Github link
 
@@ -13,6 +15,7 @@ The Heroku App is located at: [https://project2-volunteer.herokuapp.com/](https:
 Volunteer App
 
 # Badges
+[![Build Status](https://travis-ci.com/AJFree458/Project-2.svg?branch=master)](https://travis-ci.com/AJFree458/Project-2)
 
 # Description
 
