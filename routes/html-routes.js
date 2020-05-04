@@ -25,13 +25,9 @@ module.exports = function (app) {
     db.Events.findAll({}).then(function (dbEvents) {
       console.log(dbEvents[0]);
       // res.sendFile(path.join(__dirname,"../public/html/user.html"));
-      res.render(
-        "volunteer",
-        { layout: "volunteerMain" },
-        {
-          volunteers: dbEvents.map((event) => event.toJSON()),
-        }
-      );
+      res.render("volunteer", {
+        volunteers: dbEvents.map((event) => event.toJSON()),
+      });
       // res.json(dbEvents)
     });
   });
