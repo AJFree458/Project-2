@@ -1,8 +1,12 @@
 # README-VOLUNTEER APP
 
-# Deploy Github link
+# Repository Github link
+
+The Github Repo is at: [https://github.com/AJFree458/Project-2](https://github.com/AJFree458/Project-2)
 
 # Deploy Heroku link
+
+The Heroku App is located at: [https://project2-volunteer.herokuapp.com/](https://project2-volunteer.herokuapp.com/)
 
 # Title:
 
