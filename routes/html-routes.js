@@ -34,18 +34,15 @@ module.exports = function (app) {
   });
 
   app.get("/volunteer", isAuthenticated, (req, res) => {
-    // db.Events.findAll({})
-    //     .then(function(dbEvents) {
-    //         console.log("dbEvents");
-    //         console.log(dbEvents);
-
-    res.render("volunteer", {
-      pageTitle: "Volunteer Events",
-      Authenticated: true,
-      // volunteers: dbEvents.map((event) => event.toJSON()),
+    db.Events.findAll({}).then(function (dbEvents) {
+      console.log(dbEvents);
+      res.render("volunteer", {
+        pageTitle: "Volunteer Events",
+        Authenticated: true,
+        volunteers: dbEvents.map((event) => event.toJSON()),
+      });
     });
   });
-  // });
 
   app.get("/member", isAuthenticated, function (req, res) {
     db.Events.findAll({}).then(function (dbEvents) {
