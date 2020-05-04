@@ -24,7 +24,7 @@ USERS INPUT THERE NAME AND EMAIL ADDRESS TO BECOME A VOLUNTEER.
 
 # Table of contents
 
-Title, Description, Table Of Content, Installion, Usage, License, Contribution Test, Question, Demo
+<br/>1. Title<br/>2. Description<br/>3. Table of Contents<br/>4. Installation<br/>5. Usage<br/>6. License<br/>7. Contribution<br/>8. Tests<br/>9. Questions<br/>10. Demo<br/>
 
 # Installation
 
@@ -60,5 +60,10 @@ Andrewjhrussell@gmail.com
 <br>
 Vannaksuos@gmail.com
 <br>
+pwinibihai@gmail.com
+<br>
+rthr.frmn@gmail.com
+<br>
+ErnieCorreale@stillneedemail.com
 
 
