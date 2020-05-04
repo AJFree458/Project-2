@@ -1,17 +1,27 @@
+ <link rel="stylesheet" href="/public/css/volunteer.css">
 
-    <img src="/img/handsRaised.png" width="80%" height="400px"  class="responsive">
+<div class="pure-u-1 pure-u-md-1-3">
+    {{#each event}}
+    <div class="pricing-table pricing-table-free">
+        <div class="pricing-table-header">
+            <img id = "volunteerPic" src="/public/img/Volunteer.jfif"
+                width="100%" height="100%">
+            <span class="pricing-table-price">
+            </span>
+        </div>
 
+        <ul class="pricing-table-list">
+            <li>Event Title: {{eventTitle}}</li>
+            <li>{{eventSummary}}</li>
+            <li>Date: {{eventStartDate}}</li>
+            <li>Spots Available: {{regLimit}}</li>
+            <li>Effort: {{effort}}</li>
+            <li>Address: {{address}}</li>
+            <li>Start Time:{{eventStartTime}}</li>
+            <li>Duration: {{duration}}</li>
+        </ul>
+        <button class="button-choose pure-button">Choose</button>
 
-<h2 class="volunOpp">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores voluptatem provident voluptate
-    iure delectus fugit, commodi blanditiis ab nobis quasi, in molestiae natus dolor, aliquam qui voluptatibus vero
-    nostrum quisquam..</h2>
-{{!-- <div>Member Name: <span id="memberName"></span></div> --}}
-<div>Events</div>
-
-<div class="content-wrapper">
-    <div class="pricing-tables pure-g">
-        {{#each Events}}
-        {{>volunteer/volunteer-block}}
-        {{/each}}
     </div>
+     {{/each}}
 </div>

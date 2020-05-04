@@ -14,8 +14,8 @@
 
     <link rel="stylesheet" href="../css/index.css">
 
-    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-    <script src="/public/js/getUsername.js"></script>
+    <script type="text/javascript" src="/public/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/public/js/getUsername.js"></script>
 
 </head>
 
@@ -24,7 +24,7 @@
     <div class="header">
         <spa id="navBar" class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
             {{#if Authenticated}}
-                     <span style="text-align: right;color:white;margin:10px;">Hello, {{memberName}}</span>
+                     <span style="text-align: right;color:white;margin:10px;">Hello, <span id="memberName"></span>
             {{else}}
                     <span class="pure-menu-heading">Volunteer Your Time</span>
             {{/if}}
@@ -40,7 +40,7 @@
                 {{/if}}
 
             </ul>
-        </spa>
+        </span>
 
     </div>
 
