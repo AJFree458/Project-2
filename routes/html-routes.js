@@ -39,16 +39,17 @@ module.exports = function (app) {
       res.render("volunteer", {
         pageTitle: "Volunteer Events",
         Authenticated: true,
-        volunteers: dbEvents.map((event) => event.toJSON()),
+        events: dbEvents.map((event) => event.toJSON()),
       });
     });
   });
 
   app.get("/member", isAuthenticated, function (req, res) {
-    db.Events.findAll({}).then(function (dbEvents) {
-      console.log(dbEvents[0]);
+    db.User.findAll({}).then(function (dbEvents) {
       // res.sendFile(path.join(__dirname,"../public/html/user.html"));
       res.render("member", {
+        pageTitle: "Member Page",
+        Authenticated: true,
         dbEvents: dbEvents.map((event) => event.toJSON()),
       });
       // res.json(dbEvents)
