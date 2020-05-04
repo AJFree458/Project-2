@@ -1,11 +1,12 @@
 /* eslint-disable prettier/prettier */
-var express = require("express");
-var router = express.Router();
+var db = require("../models");
+// var express = require("express");
+// var router = express.Router();
 var path = require("path"); // Requiring path to so we can use relative routes to our HTML files
 
-router.get("/", function (req, res) {
-  res.render("index");
-});
+// router.get("/", function (req, res) {
+//   res.render("index");
+// });
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -27,12 +28,12 @@ module.exports = function (app) {
 
   app.get("/signup", (req, res) => {
     // res.sendFile(path.join(__dirname, "../public/html/signup.html"));
-    res.render("signup");
+    res.render("signup", { layout: "signupMain" });
   });
 
   app.get("/login", function (req, res) {
     // res.sendFile(path.join(__dirname, "../public/html/login.html"));
-    res.render("login");
+    res.render("login", { layout: "loginMain" });
   });
 
   // Routes that require Authentification to view
@@ -40,7 +41,12 @@ module.exports = function (app) {
 
   app.get("/volunteer", isAuthenticated, (req, res) => {
     // res.sendFile(path.join(__dirname, "../public/html/volunteer.html"));
-    res.render("volunteer");
+    db.Events.findAll(function (data) {
+      var hbsObject = {
+        Events: data,
+      };
+      res.render("volunteer", { layout: "volunteerMain" }, hbsObject);
+    });
   });
 
   // If a user who is not logged in tries to access this route they will be redirected to the login page
