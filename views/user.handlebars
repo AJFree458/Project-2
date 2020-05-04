@@ -1,0 +1,14 @@
+  <div class="pure-g card-container">
+    <img src="../img/img_avatar-male.png" alt="">
+    <h4 class="pure-u-1 pure-u-md-1-3">Name: {{name}}</h4>
+    <p class="pure-u-1 pure-u-md-1-3">Contact: {{email}}</p>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="pricing-tables pure-g">
+      {{#each opportunity}}
+        {{>opportunity/opportunity-block}}
+      {{/each}}
+    </div>
+  </div>
+

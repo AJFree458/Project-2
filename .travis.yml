@@ -3,6 +3,7 @@ node_js: "12"
 branches:
   only:
     - master
+dist: trusty
 cache:
   directories:
     - node_modules
