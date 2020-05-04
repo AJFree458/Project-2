@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 $(document).ready(function () {
+  console.log("Starting Login.js");
   // Getting references to our form and inputs
   var loginForm = $("form.login");
   var emailInput = $("input#email-input");

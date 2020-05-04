@@ -10,26 +10,13 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function (app) {
   app.get("/", function (req, res) {
     // res.sendFile(path.join(__dirname, "../public/html/index.html"));
-    res.render("index");
-  });
-
-  app.get("/js", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/js/"));
+    res.render("index", {
+      pageTitle: "Home - Volunteer",
+    });
   });
 
   app.get("/privacy", (req, res) => {
     res.render("privacy", { layout: false });
-  });
-
-  app.get("/volunteer", (req, res) => {
-    db.Events.findAll({}).then(function (dbEvents) {
-      console.log(dbEvents[0]);
-      // res.sendFile(path.join(__dirname,"../public/html/user.html"));
-      res.render("volunteer", {
-        volunteers: dbEvents.map((event) => event.toJSON()),
-      });
-      // res.json(dbEvents)
-    });
   });
 
   app.get("/signup", (req, res) => {
@@ -38,24 +25,33 @@ module.exports = function (app) {
   });
 
   app.get("/login", function (req, res) {
-    // If the user already has an account send them to the index page
-    // if (req.user) {
-    // res.redirect("/login");
-    // }
-    res.render("login", { layout: "loginMain" });
+    res.render("login");
   });
 
   // If a user who is not logged in tries to access this route they will be redirected to the login page
   app.get("/NewEvent", isAuthenticated, (req, res) => {
-    // res.sendFile(path.join(__dirname, "../public/html/newEvent.html"));
     res.render("newEvent");
   });
 
-  app.get("/members", isAuthenticated, function (req, res) {
+  app.get("/volunteer", isAuthenticated, (req, res) => {
+    // db.Events.findAll({})
+    //     .then(function(dbEvents) {
+    //         console.log("dbEvents");
+    //         console.log(dbEvents);
+
+    res.render("volunteer", {
+      pageTitle: "Volunteer Events",
+      Authenticated: true,
+      // volunteers: dbEvents.map((event) => event.toJSON()),
+    });
+  });
+  // });
+
+  app.get("/member", isAuthenticated, function (req, res) {
     db.Events.findAll({}).then(function (dbEvents) {
       console.log(dbEvents[0]);
       // res.sendFile(path.join(__dirname,"../public/html/user.html"));
-      res.render("members", {
+      res.render("member", {
         dbEvents: dbEvents.map((event) => event.toJSON()),
       });
       // res.json(dbEvents)
