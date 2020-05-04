@@ -1,6 +1,10 @@
 {
   "development": {
-    "use_env_variable": true
+    "username": "root",
+    "password": "MaCgYvEr29>?",
+    "host": "localhost",
+    "database": "volunteer",
+    "dialect": "mysql"
   },
 
   "production": {
