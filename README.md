@@ -1,6 +1,4 @@
-
 VOLUNTEER APP
-
 # Repository Github link
 
 The Github Repo is at: [https://github.com/AJFree458/Project-2](https://github.com/AJFree458/Project-2)
@@ -63,6 +61,6 @@ pwinibihai@gmail.com
 <br>
 rthr.frmn@gmail.com
 <br>
-ErnieCorreale@stillneedemail.com
+Ecorreale@me.com.
 
 
