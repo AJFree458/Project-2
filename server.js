@@ -1,12 +1,11 @@
 /* eslint-disable indent */
-/* eslint-disable prettier/prettier */
 
 require("dotenv").config();
 
 var express = require("express");
 var exphbs = require("express-handlebars");
 var session = require("express-session");
-// var Sequelize = require('sequelize');
+// var Sequelize = require('sequelize')
 var passport = require("./config/passport");
 var db = require("./models"); // Require models for sync
 var app = express();
@@ -32,7 +31,7 @@ app.set("view engine", "handlebars");
 
 var PORT = process.env.PORT || 8080;
 
-//Authentication
+// Authentication
 app.use(passport.initialize());
 app.use(passport.session());
 
