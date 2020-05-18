@@ -6,10 +6,12 @@ require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
 var session = require("express-session");
+var compression = require("compression");
 // var Sequelize = require('sequelize');
 var passport = require("./config/passport");
 var db = require("./models"); // Require models for sync
 var app = express();
+app.use(compression());
 var SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 var sessionStore = new SequelizeStore({
@@ -63,6 +65,7 @@ app.use(express.json());
 
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
+
 
 db.sequelize
   .sync({

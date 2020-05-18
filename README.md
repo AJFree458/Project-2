@@ -1,5 +1,4 @@
-# README-VOLUNTEER APP
-
+VOLUNTEER APP
 # Repository Github link
 
 The Github Repo is at: [https://github.com/AJFree458/Project-2](https://github.com/AJFree458/Project-2)
@@ -13,6 +12,7 @@ The Heroku App is located at: [https://project2-volunteer.herokuapp.com/](https:
 Volunteer App
 
 # Badges
+[![Build Status](https://travis-ci.com/AJFree458/Project-2.svg?branch=master)](https://travis-ci.com/AJFree458/Project-2)
 
 # Description
 
@@ -21,7 +21,7 @@ USERS INPUT THERE NAME AND EMAIL ADDRESS TO BECOME A VOLUNTEER.
 
 # Table of contents
 
-Title, Description, Table Of Content, Installion, Usage, License, Contribution Test, Question, Demo
+<br/>1. Title<br/>2. Description<br/>3. Table of Contents<br/>4. Installation<br/>5. Usage<br/>6. License<br/>7. Contribution<br/>8. Tests<br/>9. Questions<br/>10. Demo<br/>
 
 # Installation
 
@@ -55,7 +55,12 @@ Travis CI
 
 Andrewjhrussell@gmail.com
 <br>
-Vannak@gmail.com
+Vannaksuos@gmail.com
 <br>
-# Demo
+pwinibihai@gmail.com
+<br>
+rthr.frmn@gmail.com
+<br>
+Ecorreale@me.com.
+
 
