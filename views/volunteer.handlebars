@@ -1,13 +1,12 @@
- <link rel="stylesheet" href="/public/css/volunteer.css">
+<link rel="stylesheet" href="/public/css/volunteer.css">
 
-   {{#each events}}
+{{#each events}}
 
 
-<div class="pure-u-1 pure-u-md-1-5 " >
+<div class="pure-u-1 pure-u-md-1-5 ">
     <div class="pricing-table pricing-table-free">
         <div class="pricing-table-header">
-            <img id = "volunteerPic" src="/public/img/Volunteer.jfif"
-                width="100%" height="100%">
+            <img id="volunteerPic" src="/public/img/Volunteer.jfif" width="100%" height="100%">
             <span class="pricing-table-price">
             </span>
         </div>
@@ -22,9 +21,10 @@
             <li>Start Time:{{eventStartTime}}</li>
             <li>Duration: {{duration}}</li>
         </ul>
-        <button class="button-choose pure-button">Choose</button>
+        <a href="/member">
+        <button class="button-choose pure-button">Choose</button></a>
 
     </div>
 
 </div>
- {{/each}}
+{{/each}}

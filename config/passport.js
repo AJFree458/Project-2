@@ -6,6 +6,14 @@ var bcrypt = require("bcryptjs");
 var db = require("../models");
 // var User = require('../models').user;
 
+var compression = require("compression");
+var express = require("express");
+
+var app = express();
+
+// compress all responses
+app.use(compression());
+
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(
   new LocalStrategy(
@@ -30,7 +38,9 @@ passport.use(
           if (!user || !isValid) {
             console.log("email or password is invalid");
             return done(null, false, {
-              errors: { "email or password": "is invalid" },
+              errors: {
+                "email or password": "is invalid",
+              },
             });
           }
           console.log("Authenticated!!");

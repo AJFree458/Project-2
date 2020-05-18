@@ -2,6 +2,13 @@
 var db = require("../models");
 var passport = require("../config/passport");
 
+var compression = require("compression");
+var express = require("express");
+
+var app = express();
+
+app.use(compression());
+
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the volunteer page.

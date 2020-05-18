@@ -15,7 +15,9 @@ var SequelizeStore = require("connect-session-sequelize")(session.Store);
 var sessionStore = new SequelizeStore({
   db: db.sequelize,
 });
-sessionStore.sync({ force: true });
+sessionStore.sync({
+  force: true,
+});
 
 app.use(
   session({
@@ -27,7 +29,12 @@ app.use(
   })
 );
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine(
+  "handlebars",
+  exphbs({
+    defaultLayout: "main",
+  })
+);
 app.set("view engine", "handlebars");
 
 var PORT = process.env.PORT || 8080;
@@ -37,20 +44,36 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Data parsing
-app.use(express.urlencoded({ extended: true }));
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 app.use(express.json());
 
 // Static directory
 app.use("/public", express.static(__dirname + "/public"));
 
-app.use(express.urlencoded({ extended: true }));
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 app.use(express.json());
 
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
-db.sequelize.sync({ force: false }).then(function () {
-  app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+db.sequelize
+  .sync({
+    force: false,
+  })
+  .then(function () {
+    app.listen(PORT, function () {
+      console.log("App listening on PORT " + PORT);
+    });
   });
-});
+
+var compression = require("compression");
+
+app.use(compression());
