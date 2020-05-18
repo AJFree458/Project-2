@@ -7,6 +7,14 @@ var path = require("path"); // Requiring path to so we can use relative routes t
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
+var compression = require("compression");
+var express = require("express");
+
+var app = express();
+
+// compress all responses
+app.use(compression());
+
 module.exports = function (app) {
   app.get("/", function (req, res) {
     // res.sendFile(path.join(__dirname, "../public/html/index.html"));
@@ -16,12 +24,16 @@ module.exports = function (app) {
   });
 
   app.get("/privacy", (req, res) => {
-    res.render("privacy", { layout: false });
+    res.render("privacy", {
+      layout: false,
+    });
   });
 
   app.get("/signup", (req, res) => {
     // res.sendFile(path.join(__dirname, "../public/html/signup.html"));
-    res.render("signup", { layout: "signupMain" });
+    res.render("signup", {
+      layout: "signupMain",
+    });
   });
 
   app.get("/login", function (req, res) {
