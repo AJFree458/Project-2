@@ -3,26 +3,27 @@
 {{#each events}}
 
 
-<div class="pure-u-1 pure-u-md-1-5 ">
+<div class="pure-u-1 pure-u-md-1-6">
     <div class="pricing-table pricing-table-free">
         <div class="pricing-table-header">
-            <img id="volunteerPic" src="/public/img/Volunteer.jfif" width="100%" height="100%">
+            <img id="volunteerPic"
+                src="https://newlondonchamber.com/wp-content/uploads/2019/08/volunteer-hands-image.jpg" width="100%"
+                height="100%">
             <span class="pricing-table-price">
             </span>
         </div>
 
         <ul class="pricing-table-list">
             <li>Event Title: {{eventTitle}}</li>
-            <li>{{eventSummary}}</li>
-            <li>Date: {{eventStartDate}}</li>
-            <li>Spots Available: {{regLimit}}</li>
-            <li>Effort: {{effort}}</li>
+            <li>Event Start Date: {{eventStartDate}}</li>
+            <li>Event End Date: {{eventEndDate}}</li>
             <li>Address: {{address}}</li>
-            <li>Start Time:{{eventStartTime}}</li>
-            <li>Duration: {{duration}}</li>
+            <li>Event Start Time: {{eventStartTime}}</li>
+            <li>Event End Time: {{eventEndTime}}</li>
+            <li>Event Detail: {{eventDetail}}</li>
         </ul>
         <a href="/member">
-        <button class="button-choose pure-button">Choose</button></a>
+            <button class="button-choose pure-button">Choose</button></a>
 
     </div>
 
