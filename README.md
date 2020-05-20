@@ -7,7 +7,7 @@ The Github Repo is at: [https://github.com/AJFree458/Project-2](https://github.c
 
 The Heroku App is located at: [https://project2-volunteer.herokuapp.com/](https://project2-volunteer.herokuapp.com/)
 
-# Title:
+# Title
 
 Volunteer App
 
