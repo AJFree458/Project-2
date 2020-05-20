@@ -1,33 +1,22 @@
- <link rel="stylesheet" href="../css/volunteer.css">
 
+<link rel="stylesheet" href="/public/css/member.css">
+<div class="pure-g card-container">
+    <img src="../img/img_avatar-male.png" alt="">
+</div>
+<img
+    src="https://unitedwayofbrucegrey.com/wp-content/uploads/2018/04/We-love-our-Volunteers-National-Volunteer-Week-3.jpg">
 
-<div style="padding-top:50px;">
-    <div class="pure-g card-container" style="height:450px;">
-        <img src="../img/img_avatar-male.png" style="height:350px" alt="Profile Picture">
-        <h5 class="pure-u-1 pure-u-md-1-3">
-            <div>Name: {{memberName}} </div>
-            <div>Contact: {{email}}</div>
-        </h5>
-        {{!-- <div class="pure-u-1 pure-u-md-1-3">Contact: {{email}}
-
-        </div> --}}
+<div class="content-wrapper">
+    <div class="pricing-tables pure-g">
+        {{#each dbEvents}}
     </div>
 
-    <div class="content-wrapper">
-        <div class="pricing-tables pure-g">
-            {{#each dbEvents}}
-            <span>{{eventId}}</span>
-
-            <div class="pure-u-1 pure-u-md-1-3">
-                <div class="pricing-table pricing-table-free">
-                    <div class="pricing-table-header">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS9yRhYhEq3Z2tm854A4-w6E8TCjcNwg-jt_VTKF0PS5SZdw-dG&usqp=CAU"
-                            width="100%" height="100%">
-                        <span class="pricing-table-price">
-                        </span>
-                    </div>
-                    {{#if hasEvents}}
-
+    <div class="row">
+        <div id="offset" class="col-sm-6 offset-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">You Have Requested these Events</h5>
+                    <p class="card-text">We will contact you via Email soon.</p>
                     <ul class="pricing-table-list">
                         <li>Event Title: {{eventTitle}}</li>
                         <li>Event Start Date: {{eventStartDate}}</li>
@@ -37,18 +26,14 @@
                         <li>Event End Time: {{eventEndTime}}</li>
                         <li>Event Detail: {{eventDetail}}</li>
                     </ul>
-                    {{else}}
-                    <div>You have not registered for any volunteer events yet.</div>
-                    {{/if}}
                 </div>
-                {{/each}}
-
             </div>
         </div>
-
-
-
-
-    </div> <!-- end pricing-tables -->
+    </div>
+    {{/each}}
 
 </div>
+
+</body>
+
+</html>

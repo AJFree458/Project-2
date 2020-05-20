@@ -57,7 +57,7 @@ module.exports = function (app) {
   });
 
   app.get("/member", isAuthenticated, function (req, res) {
-    db.User.findAll({}).then(function (dbEvents) {
+    db.Events.findAll({}).then(function (dbEvents) {
       // res.sendFile(path.join(__dirname,"../public/html/user.html"));
       res.render("member", {
         pageTitle: "Member Page",

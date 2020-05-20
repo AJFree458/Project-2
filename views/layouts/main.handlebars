@@ -7,12 +7,14 @@
     <meta name="description" content="A layout example that shows off a responsive product landing page.">
     <title>{{pageTitle}}</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
 
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="/public/css/index.css">
+
 
     <script type="text/javascript" src="/public/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="/public/js/getUsername.js"></script>
@@ -24,23 +26,23 @@
     <div class="header">
         <spa id="navBar" class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
             {{#if Authenticated}}
-                     <span style="text-align: right;color:white;margin:10px;">Hello, <span id="memberName"></span>
-            {{else}}
-                    <span class="pure-menu-heading">Volunteer Your Time</span>
-            {{/if}}
-
-            <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="/">Home</a></li>
-                <li class="pure-menu-item"><a href="/volunteer" class="pure-menu-link">Volunteer</a></li>
-                {{#if Authenticated}}
-                     <li class="pure-menu-item"><a href="/logout">Log Out</a></li>
+            <span style="text-align: right;color:white;margin:10px;">Hello, <span id="memberName"></span>
                 {{else}}
-                        <li class="pure-menu-item"><a href="/signup" class="pure-menu-link">Sign Up</a></li>
-                        <li class="pure-menu-item"><a href="/login" class="pure-menu-link">Log in</a></li>
+                <span class="pure-menu-heading">Volunteer Your Time</span>
                 {{/if}}
 
-            </ul>
-        </span>
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="/">Home</a></li>
+                    <li class="pure-menu-item"><a href="/volunteer" class="pure-menu-link">Volunteer</a></li>
+                    {{#if Authenticated}}
+                    <li class="pure-menu-item"><a href="/logout">Log Out</a></li>
+                    {{else}}
+                    <li class="pure-menu-item"><a href="/signup" class="pure-menu-link">Sign Up</a></li>
+                    <li class="pure-menu-item"><a href="/login" class="pure-menu-link">Log in</a></li>
+                    {{/if}}
+
+                </ul>
+            </span>
 
     </div>
 
