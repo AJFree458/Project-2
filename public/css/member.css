@@ -1,23 +1,25 @@
-/*
- * -- BASE STYLES --
- * Most of these are inherited from Base, but I want to change a few.
- */
 
- body {
+body {
     line-height: 1.7em;
     color: #7f8c8d;
     font-size: 13px;
 }
 
-hr {
-    border: 5px solid #f1f1f1;
-    margin-bottom: 25px;
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+
+#weLove {
+    width: 50%;
+    height: 50%;
+    align-items: center;
+    
 }
 
-#volunteerPic {
-    width: 100%;
-    height: 100%;
-}
 
 h1,
 h2,
@@ -29,29 +31,6 @@ label {
     color: #34495e;
 }
 
-.pure-img-responsive {
-    max-width: 100%;
-    height: auto;
-}
-
-.l-box {
-    padding: 1em;
-}
-
-.l-box-lrg {
-    padding: 2em;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.is-center {
-    text-align: center;
-}
-
-.home-menu {
-    padding: 0.5em;
-    text-align: center;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
-}
 
 .home-menu {
     background: grey;
@@ -80,422 +59,72 @@ label {
 
 #offset {
     margin-left: 40px;
+  
 }
 
-.home-menu li a:hover,
-.home-menu li a:focus {
-    background: none;
-    border: none;
-    color: #AECFE5;
-}
-
-.splash-container {
-    background: #1f8dd6;
-    z-index: 1;
-    overflow: hidden;
-    /* The following styles are required for the "scroll-over" effect */
-    width: 100%;
-    height: 88%;
-    top: 0;
-    left: 0;
-    position: fixed !important;
-}
-
-.splash {
-    /* absolute center .splash within .splash-container */
-    width: 80%;
-    height: 50%;
-    margin: auto;
-    position: absolute;
-    top: 100px;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    text-align: center;
-    text-transform: uppercase;
+.row {
+    float: left;
 }
 
 
-/* This is the main heading that appears on the blue section */
-
-.splash-head {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    border: 3px solid white;
-    padding: 1em 1.6em;
-    font-weight: 100;
-    border-radius: 5px;
-    line-height: 1em;
-}
-
-
-/* This is the subheading that appears on the blue section */
-
-.splash-subhead {
-    color: white;
-    letter-spacing: 0.05em;
-    opacity: 0.8;
-}
-
-
-/*
- * -- CONTENT STYLES --
- * This represents the content area (everything below the blue section)
- */
-
-.content-wrapper {
-    /* These styles are required for the "scroll-over" effect */
-    position: absolute;
-    top: 87%;
-    width: 100%;
-    min-height: 12%;
-    z-index: 2;
-    background: white;
-}
-
-
-/* We want to give the content area some more padding */
-
-.content {
-    padding: 1em 1em 3em;
-}
-
-
-/* This is the class used for the main content headers (<h2>) */
-
-.content-head {
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin: 2em 0 1em;
-}
-
-
-/* This is a modifier class used when the content-head is inside a ribbon */
-
-.content-head-ribbon {
-    color: white;
-}
-
-
-/* This is the class used for the content sub-headers (<h3>) */
-
-.content-subhead {
-    color: #1f8dd6;
-}
-
-.content-subhead i {
-    margin-right: 7px;
-}
-
-
-/* This is the class used for the dark-background areas. */
-
-.ribbon {
-    background: #2d3e50;
-    color: #aaa;
-}
-
-
-/* This is the class used for the footer */
-
-.footer {
-    background: #111;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-
-/*
- * -- TABLET (AND UP) MEDIA QUERIES --
- * On tablets and other medium-sized devices, we want to customize some
- * of the mobile styles.
- */
 
 @media (min-width: 48em) {
-    /* We increase the body font size */
+
     body {
         font-size: 16px;
     }
-    /* We can align the menu header to the left, but float the
-    menu items to the right. */
+
     .home-menu {
         text-align: left;
     }
+
     .home-menu ul {
         float: right;
     }
-    /* We increase the height of the splash-container */
-    /*    .splash-container {
-        height: 500px;
-    }*/
-    /* We decrease the width of the .splash, since we have more width
-    to work with */
+
     .splash {
         width: 50%;
         height: 50%;
     }
+
     .splash-head {
         font-size: 250%;
     }
-    /* We remove the border-separator assigned to .l-box-lrg */
+
     .l-box-lrg {
         border: none;
     }
 }
 
 
-/*
- * -- DESKTOP (AND UP) MEDIA QUERIES --
- * On desktops and other large devices, we want to over-ride some
- * of the mobile and tablet styles.
- */
+
 
 @media (min-width: 78em) {
-    /* We increase the header font size even more */
+
     .splash-head {
         font-size: 300%;
     }
 }
 
 
-/* p {
-    line-height: 1.6em;
-}
-
-
-/*
- * -- Layout Styles --
- */
-
-
-/* .l-content {
-    margin: 0 auto;
-}
-
-.l-box {
-    padding: 0.5em 2em;
-} */
-
-
-/*
- * -- MENU STYLES --
- * Make the menu have a very faint box-shadow.
- */
-
-
-/* .pure-menu {
-    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
-}
-
-.pure-menu-link {
-    padding: .5em .7em;
-} */
-
-
-/*
- * -- BANNER --
- * The top banner with the headings. By using a combination
- * of `display: table;` and `display: table-cell;`, we can
- * vertically center the text.
- */
-
-
-/* .banner {
-    background: transparent url('http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg') 0 0 no-repeat fixed;
-    text-align: center;
-    background-size: cover;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg', sizingMethod='scale');
-
-    height: 200px;
-    width: 100%;
-    margin-bottom: 3em;
-    display: table;
-}
-
-    .banner-head {
-        display: table-cell;
-        vertical-align: middle;
-        margin-bottom: 0;
-        font-size: 2em;
-        color: white;
-        font-weight: 500;
-        text-shadow: 0 1px 1px black;
-    } */
-
-
-/*
- * -- PRICING TABLE WRAPPER --
- * This element wraps up all the pricing table elements
- */
-
-.pricing-tables,
-.information {
-    max-width: 400x;
-    margin: 0 auto;
-}
-
-.pricing-tables {
-    margin-bottom: 3.125em;
-    text-align: center;
-}
-
-
-/*
- * -- PRICING TABLE  --
- * Every pricing table has the .pricing-table class
- */
-
-.pricing-table {
-    border: 1px solid #ddd;
-    margin: 0 0.5em 2em;
-    padding: 0 0 3em;
-}
-
-
-/*
- * -- PRICING TABLE HEADER COLORS --
- * Choose a different color based on the type of pricing table.
- */
-
-.pricing-table-free .pricing-table-header {
-    background: #519251;
-}
-
-.pricing-table-biz .pricing-table-header {
-    background: #2c4985;
-}
-
-
-/*
- * -- PRICING TABLE HEADER --
- * By default, a header is black/white, and has some styles for its <h2> name.
- */
-
-.pricing-table-header {
-    background: #111;
-    color: #fff;
-}
-
-.pricing-table-header h2 {
-    margin: 0;
-    padding-top: 2em;
-    font-size: 1em;
-    font-weight: normal;
-}
-
-*/
-/*
- * -- PRICING TABLE PRICE --
- * Styles for the price and the corresponding <span>per month</span>
- */
-
-.pricing-table-price {
-    font-size: 6em;
-    margin: 0.2em 0 0;
-    font-weight: 100;
-}
-
-.pricing-table-price span {
-    display: block;
-    text-transform: uppercase;
-    font-size: 0.2em;
-    padding-bottom: 2em;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.5);
-    *color: #fff;
-}
-
-
-/*
- * -- PRICING TABLE LIST --
- * Each pricing table has a <ul> which is denoted by the .pricing-table-list class
- */
-
-.pricing-table-list {
-    list-style-type: none;
-    margin: 0px;
-    padding: 0;
-    /* text-align: center; */
-}
-
-
-/*
- * -- PRICING TABLE LIST ELEMENTS --
- * Styles for the individual list elements within each pricing table
- */
-
-.pricing-table-list li {
-    padding: 0.8em 0;
-    background: #f7f7f7;
-    border-bottom: 1px solid #e7e7e7;
-}
-
-
-/*
- * -- PRICING TABLE BUTTON --
- * Styles for the "Choose" button at the bottom of a pricing table.
- * This inherits from Pure Button.
- */
-
-.button-choose {
-    border: 1px solid #ccc;
-    background: #fff;
-    color: #333;
-    border-radius: 2em;
-    font-weight: bold;
-    position: relative;
-    bottom: -1.5em;
-}
-
-.information-head {
-    color: black;
-    font-weight: 500;
-}
-
-.footer {
-    background: #111;
-    color: #888;
-    text-align: center;
-}
-
-.footer a {
-    color: #ddd;
-}
-
-
-/*
- * -- TABLET MEDIA QUERIES --
- * On tablets, we want to slightly adjust the size of the banner
- * text and add some vertical space between the various pricing tables
- */
 
 @media(min-width: 767px) {
     .banner-head {
         font-size: 4em;
     }
+
     .pricing-table {
         margin-bottom: 0;
     }
 }
 
-
-/*
- * -- PHONE MEDIA QUERIES --
- * On phones, we want to reduce the height and font-size of the banner further
- */
-
 @media (min-width: 480px) {
     .banner {
         height: 400px;
     }
+
     .banner-head {
         font-size: 3em;
     }
 }
 
-.volunOpp {
-    text-align: center;
-}

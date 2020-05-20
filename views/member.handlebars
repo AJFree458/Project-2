@@ -1,38 +1,34 @@
-
 <link rel="stylesheet" href="/public/css/member.css">
-<div class="pure-g card-container">
-    <img src="../img/img_avatar-male.png" alt="">
-</div>
-<img
-    src="https://unitedwayofbrucegrey.com/wp-content/uploads/2018/04/We-love-our-Volunteers-National-Volunteer-Week-3.jpg">
+<img id="weLove"
+    src="https://unitedwayofbrucegrey.com/wp-content/uploads/2018/04/We-love-our-Volunteers-National-Volunteer-Week-3.jpg"
+    class="center">
 
-<div class="content-wrapper">
-    <div class="pricing-tables pure-g">
-        {{#each dbEvents}}
-    </div>
+{{#each dbEvents}}
 
-    <div class="row">
-        <div id="offset" class="col-sm-6 offset-sm-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">You Have Requested these Events</h5>
-                    <p class="card-text">We will contact you via Email soon.</p>
-                    <ul class="pricing-table-list">
-                        <li>Event Title: {{eventTitle}}</li>
-                        <li>Event Start Date: {{eventStartDate}}</li>
-                        <li>Event End Date: {{eventEndDate}}</li>
-                        <li>Address: {{address}}</li>
-                        <li>Event Start Time: {{eventStartTime}}</li>
-                        <li>Event End Time: {{eventEndTime}}</li>
-                        <li>Event Detail: {{eventDetail}}</li>
-                    </ul>
-                </div>
+
+<div class="pure-u-1 pure-u-md-1-6">
+    <div class="pricing-table pricing-table-free">
+        <div class="pricing-table-header">
+        </div>
+                <h5 class="card-title">You Have Requested this Events</h5>
+                <p class="card-text">We will contact you via Email soon.</p>
+
+                <ul class="pricing-table-list">
+                    <li>Event Title: {{eventTitle}}</li>
+                    <li>Event Start Date: {{eventStartDate}}</li>
+                    <li>Event End Date: {{eventEndDate}}</li>
+                    <li>Address: {{address}}</li>
+                    <li>Event Start Time: {{eventStartTime}}</li>
+                    <li>Event End Time: {{eventEndTime}}</li>
+                    <li>Event Detail: {{eventDetail}}</li>
+                </ul>
             </div>
         </div>
     </div>
-    {{/each}}
-
 </div>
+{{/each}}
+
+
 
 </body>
 

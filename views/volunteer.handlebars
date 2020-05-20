@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="/public/css/volunteer.css">
+ {{!-- <img src="https://ispe.org/sites/default/files/styles/hero_banner_large/public/banner-images/volunteer-hero3-1900x600-op.png?itok=jBdwMMfb" class="center" id="volunteerPic"> --}}
+
 
 {{#each events}}
 
@@ -6,11 +8,6 @@
 <div class="pure-u-1 pure-u-md-1-6">
     <div class="pricing-table pricing-table-free">
         <div class="pricing-table-header">
-            <img id="volunteerPic"
-                src="https://newlondonchamber.com/wp-content/uploads/2019/08/volunteer-hands-image.jpg" width="100%"
-                height="100%">
-            <span class="pricing-table-price">
-            </span>
         </div>
 
         <ul class="pricing-table-list">
@@ -23,7 +20,7 @@
             <li>Event Detail: {{eventDetail}}</li>
         </ul>
         <a href="/member">
-            <button class="button-choose pure-button">Choose</button></a>
+            <button id="buttons" class="button-choose pure-button" style="color: blue;">Request</button></a>
 
     </div>
 

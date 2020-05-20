@@ -14,9 +14,8 @@ hr {
     margin-bottom: 25px;
 }
 
-#volunteerPic {
-    width: 100%;
-    height: 100%;
+#buttons {
+    background: red;
 }
 
 h1,
